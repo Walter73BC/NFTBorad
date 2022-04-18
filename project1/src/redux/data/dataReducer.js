@@ -21,6 +21,7 @@ const dataReducer = (state = initialState, action) => {
         loading: false,
         totalSupply: action.payload.totalSupply,
         // cost: action.payload.cost,
+        projectStatus: action.payload.setStatus,
         error: false,
         errorMsg: "",
       };

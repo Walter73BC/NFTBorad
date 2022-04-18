@@ -1,6 +1,6 @@
 {
-  "short_name": "NV721aT1",
-  "name": "NVT1",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",

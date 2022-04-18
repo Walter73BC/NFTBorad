@@ -2,16 +2,23 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
+				"internalType": "address[]",
+				"name": "receivers",
+				"type": "address[]"
 			},
 			{
-				"internalType": "string",
-				"name": "_symbol",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "tokens",
+				"type": "uint256"
 			}
 		],
+		"name": "airdrop",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -75,11 +82,29 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_mintAmount",
+				"name": "tokens",
 				"type": "uint256"
 			}
 		],
 		"name": "mint",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokens",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32[]",
+				"name": "merkleProof",
+				"type": "bytes32[]"
+			}
+		],
+		"name": "mintPresale",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
@@ -100,22 +125,27 @@
 		"type": "error"
 	},
 	{
-		"inputs": [],
-		"name": "OwnerQueryForNonexistentToken",
-		"type": "error"
-	},
-	{
 		"inputs": [
 			{
-				"internalType": "bool",
-				"name": "_state",
-				"type": "bool"
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokens",
+				"type": "uint256"
 			}
 		],
-		"name": "pause",
+		"name": "ownerMint",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "OwnerQueryForNonexistentToken",
+		"type": "error"
 	},
 	{
 		"inputs": [],
@@ -197,19 +227,6 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_newBaseExtension",
-				"type": "string"
-			}
-		],
-		"name": "setBaseExtension",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
 				"name": "_newBaseURI",
 				"type": "string"
 			}
@@ -223,11 +240,11 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_newCost",
+				"name": "_maxpermint",
 				"type": "uint256"
 			}
 		],
-		"name": "setCost",
+		"name": "setMaxPerMint",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -236,11 +253,24 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_newmaxMintAmount",
+				"name": "_maxsupply",
 				"type": "uint256"
 			}
 		],
-		"name": "setmaxMintAmount",
+		"name": "setMaxSupply",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "_merkleRoot",
+				"type": "bytes32"
+			}
+		],
+		"name": "setMerkleRoot",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -254,6 +284,19 @@
 			}
 		],
 		"name": "setPlaceHolderUri",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_newPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "setPrice",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -367,25 +410,6 @@
 		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "minter",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "Minted",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
 				"indexed": true,
 				"internalType": "address",
 				"name": "previousOwner",
@@ -400,6 +424,32 @@
 		],
 		"name": "OwnershipTransferred",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_newPresaleMaxPerWallet",
+				"type": "uint256"
+			}
+		],
+		"name": "setPresaleMaxPerWallet",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "enum NFTboardT1.Status",
+				"name": "_status",
+				"type": "uint8"
+			}
+		],
+		"name": "setStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -479,6 +529,19 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "baseURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -536,7 +599,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "maxMintAmount",
+		"name": "MAX_PER_MINT",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -549,12 +612,25 @@
 	},
 	{
 		"inputs": [],
-		"name": "maxSupply",
+		"name": "MAX_TOKENS",
 		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "merkleRoot",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
 			}
 		],
 		"stateMutability": "view",
@@ -607,19 +683,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "paused",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "placeholderTokenUri",
 		"outputs": [
 			{
@@ -633,12 +696,38 @@
 	},
 	{
 		"inputs": [],
-		"name": "publicCost",
+		"name": "presaleMaxPerWallet",
 		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "price",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "status",
+		"outputs": [
+			{
+				"internalType": "enum NFTboardT1.Status",
+				"name": "",
+				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -746,25 +835,6 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_owner",
-				"type": "address"
-			}
-		],
-		"name": "walletOfOwner",
-		"outputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "",
-				"type": "uint256[]"
 			}
 		],
 		"stateMutability": "view",
