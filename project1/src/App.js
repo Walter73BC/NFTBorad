@@ -118,6 +118,7 @@ function App() {
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
+	PROJECT_PHASE:"",
   });
 
   const claimNFTs = () => {
@@ -291,7 +292,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Project Phase : {data.projectStatus}
+                  Project Phase : {CONFIG.PROJECT_PHASE}
                 <s.SpacerSmall />
                   1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}.

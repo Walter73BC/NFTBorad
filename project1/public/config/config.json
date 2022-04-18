@@ -14,5 +14,6 @@
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
   "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/nftbdt1",
-  "SHOW_BACKGROUND": true
+  "SHOW_BACKGROUND": true,
+  "PROJECT_PHASE": "Public Sales"
 }
