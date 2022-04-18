@@ -33,7 +33,7 @@ export const fetchData = () => {
       //   .getState()
       //   .blockchain.smartContract.methods.cost()
       //   .call();
-      let presaleStarted = await store
+      let projectStatus = await store
         .getState()
         .blockchain.smartContract.methods.setStatus()
         .call();
@@ -42,7 +42,7 @@ export const fetchData = () => {
         fetchDataSuccess({
           totalSupply,
           // cost,
-          setStatus,
+          projectStatus,
         })
       );
     } catch (err) {
