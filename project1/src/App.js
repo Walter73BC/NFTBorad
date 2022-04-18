@@ -291,8 +291,9 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Project Phase : {data.projectStatus}{" "}
-                >
+                  Project Phase : {data.projectStatus}
+                <s.SpacerSmall />
+				>
                   1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}.
                 </s.TextTitle>
