@@ -127,10 +127,11 @@ function App() {
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
-    let ProjectPhase = blockchain.smartContract.methods.status().call();
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
+    let projectPhase = await blockchain.smartContract.methods.status().call();
+    setProjectPhase(projectPhase);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(mintAmount)
