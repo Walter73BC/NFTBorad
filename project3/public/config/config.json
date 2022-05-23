@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0xC82A7AdC991E5a1c7eBc38701A462851aB351aC7",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/token/0xC82A7AdC991E5a1c7eBc38701A462851aB351aC7",
+  "NETWORK": {
+    "NAME": "Rinkeby",
+    "SYMBOL": "ETH",
+    "ID": "0x4"
+  },
+  "NFT_NAME": "NoSmokingNFT12345",
+  "SYMBOL": "NSNFT12345",
+  "MAX_SUPPLY": 5000,
+  "WEI_COST": 58000000000000000,
+  "DISPLAY_COST": 0.058,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/nosmokingnft12345",
+  "SHOW_BACKGROUND": true
+}
